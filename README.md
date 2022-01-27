@@ -1,4 +1,4 @@
-In repository contains 3 different projects. 
+This repository contains 3 different projects. 
 
 1 - spring-security-jwt-details
 2 - spring-boot-jwt-consume
