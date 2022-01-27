@@ -36,3 +36,4 @@ Authorization / token
 
 GET: localhost:8083/refreshtoken
 Authorization / token
+Heaser: isRefreshToken / true
