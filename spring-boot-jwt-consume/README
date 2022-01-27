@@ -1,0 +1,3 @@
+Previously we had consumed the exposed service spring-security-jwt-details using external client like Postman. 
+But we may also need to call this JWT authenticated service from some other microservice. In this project we will be consuming the JWT authenticated 
+exposed service programmatically using RestTemplate. Using the Spring Boot RestTemplate as the client we will be performing the following operations-
