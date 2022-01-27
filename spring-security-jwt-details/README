@@ -1,0 +1,38 @@
+1 - Generate JSON Web Token
+2 - Validate and use JWT for Authorization
+3 - Refresh JWT Token
+
+If the username and password sent by the user is successfully authenticated, server will then be generating a JSON Web Token and returning it to the client.
+
+JWT Structure:
+
+Header {"typ":"JWT", "alg":""HS512}
+Payload{"subject":"username", "isAdmin":"true", "expirationdate":"105645"}
+Signature
+  var dataStr = base64Encode(Header) + base64Encode(Payload);
+  var signature = hashAIHS512(dataStr, secret)
+  
+The JWT has this signature present. If any user intercepts and tampers with the payload, then he cannot change the signature as he does not have the secret key. 
+So the server which has the secret key will know that the JWT has been tampered with as the signature created by it using the secret key will not match the secret key in the JWT. 
+
+Endpoints:
+
+POST: localhost:8083/register
+{
+    "username":"ea",
+    "password":"1234",
+    "email":"ea@gmail.com",
+    "role":"ROLE_ADMIN"
+}
+
+POST: localhost:8083/authenticate  --- To generate the JWT token
+{
+    "username" : "ea",
+    "password" : "1234"
+}
+
+GET: localhost:8083/hello
+Authorization / token
+
+GET: localhost:8083/refreshtoken
+Authorization / token
